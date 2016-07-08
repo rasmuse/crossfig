@@ -1,3 +1,12 @@
+# 2016-07-06
+
+* Load page in headless browser (by default with a pretty wide screen!)
+
+* Web preview: Make a PNG "screenshot" and show PNG screenshot (zoomable)
+
+* PDF/print preview: Print to PDF and show PDF (using pdf.js?)
+
+
 # 2016-07-05
 
 OK, definitely let's have one figure in one html file. Because
