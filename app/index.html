@@ -5,8 +5,6 @@
     <title>Hello World!</title>
   </head>
   <body>
-  <button onclick='r.pm();'>abc</button>
-  <button onclick='console.log(r.gi());'>abc2</button>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using node <script>document.write(process.versions.node)</script>,
@@ -16,16 +14,6 @@
 
   <script>
     // You can also require other files to run in this process
-    var r = require('./renderer.js')
-
-    var mql = window.matchMedia("print")
-    // var mql = window.matchMedia("(min-width: 480px)")
-
-    function handlePrint(list) {
-      console.log('Print handler!')
-      console.log(list)
-    }
-
-    mql.addListener(handlePrint)
+    require('./renderer.js')
   </script>
 </html>
