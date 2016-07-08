@@ -1,3 +1,38 @@
+# 2016-07-08
+
+## Let's consider different "modes", or types of preview windows.
+
+* One is the debug view, which is in html mode, maybe as an iframe, or as a separate window, visiting the figure html with dev tools turned on.
+
+* Another is the web preview. This is a bitmap "screenshot" of the figure, shown on a canvas. The major benefit of this is that the figure becomes zoomable, so it works also if the figure is large. Another function here could be interactive cropping of the figure.
+
+* Third is the PDF preview. This is similar to the web preview, except that the preview is a PDF shown with pdf.js on a canvas. I guess this one would also allow interactive cropping somehow.
+
+## Multiple modes
+
+I would like to show both a web preview and a print preview while hacking on the figure.
+
+But for simplicity, maybe the app can only show one view at a time (debug, preview, export settings, ...). In this case it should be possible to open several copies of the app, all of which communicate ONLY by reading and writing the metadata file.
+
+Or else, the app must be able to handle several views at the same time. They should then be allowed to be separate windows, so the print preview, web preview, web debug, etc all can be shown on separate screens. Similar to how Photoshop works, where one can simply do "New Window for"...
+
+## Auto-update
+
+By default, the app should watch for changes and reload the figure (but the auto-reload should of course be easy to turn off -- I guess there should be a checkbox and a manual "refresh" button + keyboard shortcut (F5 or Ctrl+R??)).
+
+How to decide which files/dirs to watch?
+
+1. One possibility is to have the user select the files to watch.
+
+2. Another is to watch according to some naming standard. There are probably use cases where this does not work smoothly, e.g. if there are shared code files which cannot be named according to some stupid standard.
+
+3. A third is to watch a directory. This should be useable in all cases I guess, but if there are shared code or style files the user will have to choose between (a) having multiple copies of the same files in different directories and (b) having unnecessary reloads (e.g. if I am editing figure X while previewing figure Y, if they live in the same directory I will have to reload Y unnecessarily). Also, it is a problem that the directory watch should be recursive, but what if the directory tree contains a LOT of files, many of which are not actually relevant?
+
+4. We could try to see automatically which resources are actually loaded by the web browser rendering the figure. This is a nice solution, but will surely not work in all cases.
+
+So in conclusion, the best option seems to be (1), perhaps augmented by a combination of (2) and/or (4).
+
+
 # 2016-07-06
 
 * Load page in headless browser (by default with a pretty wide screen!)
