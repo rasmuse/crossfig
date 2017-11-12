@@ -1,3 +1,16 @@
+# 2017-04-23
+
+Watch/build figure:
+
+Define dependency graph similar to GNU Make, i.e., structurally of the form
+
+targets: dependencies
+	rule
+
+Watch all dependencies of all targets, rerun as necessary (and changes will propagate).
+
+Pick files/folders that constitute the figure; watch them and reload any previews as they change.
+
 # 2016-07-08
 
 ## Let's consider different "modes", or types of preview windows.
